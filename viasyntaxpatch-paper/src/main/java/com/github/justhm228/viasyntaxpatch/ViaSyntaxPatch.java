@@ -22,5 +22,20 @@
  * SOFTWARE.
  */
 
-rootProject.name = 'ViaSyntaxPatch'
-include 'viasyntaxpatch-paper'
+package com.github.justhm228.viasyntaxpatch;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class ViaSyntaxPatch extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        // Plugin startup logic
+
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+    }
+}
