@@ -28,14 +28,26 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ViaSyntaxPatch extends JavaPlugin {
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
+    public ViaSyntaxPatch() {
 
+        super();
     }
 
-    @Override
+    @Override()
+    public void onLoad() {
+
+        super.onLoad();
+    }
+
+    @Override()
+    public void onEnable() {
+
+        super.onEnable();
+    }
+
+    @Override()
     public void onDisable() {
-        // Plugin shutdown logic
+
+        super.onDisable();
     }
 }
