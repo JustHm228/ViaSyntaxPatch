@@ -1,7 +1,7 @@
 name: ViaSyntaxPatch
 version: '${version}'
 main: com.github.justhm228.viasyntaxpatch.ViaSyntaxPatch
-api-version: '1.20'
+api-version: '1.20.5'
 prefix: ViaSyntaxPatch
 authors: [JustHuman228]
 website: https://github.com/JustHm228/ViaSyntaxPatch
