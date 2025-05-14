@@ -24,7 +24,7 @@
 
 plugins {
     id 'java'
-    id("xyz.jpenilla.run-paper") version "2.3.1"
+    id 'xyz.jpenilla.run-paper' version '2.3.1'
 }
 
 group = 'com.github.justhm228'
@@ -47,12 +47,12 @@ dependencies {
 }
 
 tasks {
-  runServer {
-    // Configure the Minecraft version for our task.
-    // This is the only required configuration besides applying the plugin.
-    // Your plugin's jar (or shadowJar if present) will be used automatically.
-    minecraftVersion("1.20.5")
-  }
+    runServer {
+        // Configure the Minecraft version for our task.
+        // This is the only required configuration besides applying the plugin.
+        // Your plugin's jar (or shadowJar if present) will be used automatically.
+        minecraftVersion("1.20.5")
+    }
 }
 
 def targetJavaVersion = 21
