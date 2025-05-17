@@ -6,3 +6,4 @@ prefix: ViaSyntaxPatch
 authors: [JustHuman228]
 website: https://github.com/JustHm228/ViaSyntaxPatch
 depend: [ViaVersion]
+softdepend: [ViaBackwards]
