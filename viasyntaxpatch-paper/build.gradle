@@ -41,10 +41,14 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        url = "https://repo.viaversion.com"
+    }
 }
 
 dependencies {
     paperweight.paperDevBundle("1.20.6-R0.1-SNAPSHOT")
+    compileOnly("com.viaversion:viaversion-api:5.0.0")
 }
 
 tasks {
