@@ -24,7 +24,7 @@
 
 package com.github.justhm228.viasyntaxpatch.command;
 
-import com.github.justhm228.viasyntaxpatch.CommandContextFactory;
+import com.github.justhm228.viasyntaxpatch.internal.CommandContextFactory;
 import com.github.justhm228.viasyntaxpatch.ViaSyntaxPatch;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.CommandNode;

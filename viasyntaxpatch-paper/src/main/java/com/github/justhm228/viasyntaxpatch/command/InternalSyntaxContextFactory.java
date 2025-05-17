@@ -25,7 +25,7 @@
 package com.github.justhm228.viasyntaxpatch.command;
 
 import com.destroystokyo.paper.event.brigadier.AsyncPlayerSendCommandsEvent;
-import com.github.justhm228.viasyntaxpatch.SyntaxContextFactory;
+import com.github.justhm228.viasyntaxpatch.internal.SyntaxContextFactory;
 import com.github.justhm228.viasyntaxpatch.ViaSyntaxPatch;
 import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;

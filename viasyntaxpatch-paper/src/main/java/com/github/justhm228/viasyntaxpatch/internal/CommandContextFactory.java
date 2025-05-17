@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.github.justhm228.viasyntaxpatch;
+package com.github.justhm228.viasyntaxpatch.internal;
 
 import com.github.justhm228.viasyntaxpatch.command.CommandContext;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;

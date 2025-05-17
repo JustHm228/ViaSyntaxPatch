@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.github.justhm228.viasyntaxpatch;
+package com.github.justhm228.viasyntaxpatch.internal;
 
 import com.destroystokyo.paper.event.brigadier.AsyncPlayerSendCommandsEvent;
 import com.github.justhm228.viasyntaxpatch.command.SyntaxContext;
