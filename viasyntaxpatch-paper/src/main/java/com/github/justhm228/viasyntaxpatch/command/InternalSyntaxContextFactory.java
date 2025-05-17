@@ -36,9 +36,15 @@ public final class InternalSyntaxContextFactory implements SyntaxContextFactory 
 
 	private final ViaSyntaxPatch plugin;
 
-	public InternalSyntaxContextFactory(final ViaSyntaxPatch plugin) {
+	public InternalSyntaxContextFactory(final ViaSyntaxPatch plugin) throws IllegalStateException {
 
 		super();
+
+		if (plugin.getSyntaxContextFactory() != null) {
+
+			throw new IllegalStateException();
+		}
+
 		this.plugin = plugin;
 	}
 

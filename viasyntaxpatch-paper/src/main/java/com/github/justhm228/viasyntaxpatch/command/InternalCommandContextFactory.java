@@ -39,9 +39,15 @@ public final class InternalCommandContextFactory implements CommandContextFactor
 
 	private final ViaSyntaxPatch plugin;
 
-	public InternalCommandContextFactory(final ViaSyntaxPatch plugin) {
+	public InternalCommandContextFactory(final ViaSyntaxPatch plugin) throws IllegalStateException {
 
 		super();
+
+		if (plugin.getCommandContextFactory() != null) {
+
+			throw new IllegalStateException();
+		}
+
 		this.plugin = plugin;
 	}
 
