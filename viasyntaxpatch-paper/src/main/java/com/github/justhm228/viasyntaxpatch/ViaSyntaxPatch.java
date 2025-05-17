@@ -25,12 +25,28 @@
 package com.github.justhm228.viasyntaxpatch;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import com.github.justhm228.viasyntaxpatch.command.InternalSyntaxContextFactory;
+import com.github.justhm228.viasyntaxpatch.command.InternalCommandContextFactory;
 
 public final class ViaSyntaxPatch extends JavaPlugin {
+
+    private SyntaxContextFactory syntaxContextFactory;
+
+    private CommandContextFactory<?> commandContextFactory;
 
     public ViaSyntaxPatch() {
 
         super();
+    }
+
+    public CommandContextFactory<?> getCommandContextFactory() {
+
+        return commandContextFactory;
+    }
+
+    public SyntaxContextFactory getSyntaxContextFactory() {
+
+        return syntaxContextFactory;
     }
 
     @Override()
@@ -43,11 +59,15 @@ public final class ViaSyntaxPatch extends JavaPlugin {
     public void onEnable() {
 
         super.onEnable();
+        syntaxContextFactory = new InternalSyntaxContextFactory(this);
+        commandContextFactory = new InternalCommandContextFactory(this);
     }
 
     @Override()
     public void onDisable() {
 
         super.onDisable();
+        syntaxContextFactory = null;
+        commandContextFactory = null;
     }
 }
