@@ -28,9 +28,19 @@ import com.destroystokyo.paper.event.brigadier.AsyncPlayerSendCommandsEvent;
 import com.github.justhm228.viasyntaxpatch.command.SyntaxContext;
 import io.papermc.paper.command.brigadier.CommandSourceStack;
 
+/**
+ * Dedicated to construct {@link SyntaxContext} objects used by plugin's event handlers.
+ */
 @FunctionalInterface()
 public interface SyntaxContextFactory {
 
+	/**
+	 * Constructs a {@link SyntaxContext} object.
+	 *
+	 * @param name Name of the command's head node.
+	 * @param e {@link AsyncPlayerSendCommandsEvent} used to construct {@link SyntaxContext}.
+	 * @return Constructed {@link SyntaxContext}.
+	 */
 	@SuppressWarnings("UnstableApiUsage")
 	SyntaxContext<CommandSourceStack> create(final String name, final AsyncPlayerSendCommandsEvent<CommandSourceStack> e);
 }

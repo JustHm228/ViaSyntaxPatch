@@ -27,8 +27,19 @@ package com.github.justhm228.viasyntaxpatch.internal;
 import com.github.justhm228.viasyntaxpatch.command.CommandContext;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+/**
+ * Dedicated to construct {@link CommandContext} objects to be used by plugin's event handlers.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 @FunctionalInterface()
 public interface CommandContextFactory<S> {
 
+	/**
+	 * Constructs a {@link CommandContext} object.
+	 *
+	 * @param e {@link PlayerCommandPreprocessEvent} used to construct {@link CommandContext}.
+	 * @return A {@link CommandContext} object.
+	 */
 	CommandContext<S> create(final PlayerCommandPreprocessEvent e);
 }
