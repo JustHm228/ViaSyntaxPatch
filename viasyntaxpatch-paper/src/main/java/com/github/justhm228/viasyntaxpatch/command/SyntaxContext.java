@@ -29,6 +29,11 @@ import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
 import org.bukkit.entity.Player;
 
+/**
+ * Provides required parameters to {@link SyntaxTransformer}.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 public abstract class SyntaxContext<S> {
 
 	private final ViaSyntaxPatch plugin;
@@ -41,6 +46,15 @@ public abstract class SyntaxContext<S> {
 
 	private final CommandNode<S> parentNode;
 
+	/**
+	 * Constructs a {@link SyntaxContext} object. Prefer using factories over this constructor.
+	 *
+	 * @param plugin A plugin instance.
+	 * @param player A player to whom your syntax transformations are sent.
+	 * @param rootNode Brigadier's root command node of the player.
+	 * @param headNode A head node of the transformed command.
+	 * @param parentNode A parent node.
+	 */
 	protected SyntaxContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> rootNode, final CommandNode<S> headNode, final CommandNode<S> parentNode) {
 
 		super();
@@ -51,26 +65,51 @@ public abstract class SyntaxContext<S> {
 		this.parentNode = parentNode;
 	}
 
+	/**
+	 * Returns a plugin instance.
+	 *
+	 * @return The plugin instance.
+	 */
 	public final ViaSyntaxPatch getPlugin() {
 
 		return plugin;
 	}
 
+	/**
+	 * Returns a player to whom your syntax transformations are sent.
+	 *
+	 * @return The player to whom your syntax transformations are sent.
+	 */
 	public final Player getPlayer() {
 
 		return player;
 	}
 
+	/**
+	 * Returns Brigadier's root command node of the player.
+	 *
+	 * @return Brigadier's root command node of the player.
+	 */
 	public final RootCommandNode<S> getRootNode() {
 
 		return rootNode;
 	}
 
+	/**
+	 * Returns a head node of the transformed command.
+	 *
+	 * @return The head node of the transformed command.
+	 */
 	public final CommandNode<S> getHeadNode() {
 
 		return headNode;
 	}
 
+	/**
+	 * Returns a parent node.
+	 *
+	 * @return The parent node.
+	 */
 	public final CommandNode<S> getParentNode() {
 
 		return parentNode;
