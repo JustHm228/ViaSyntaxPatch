@@ -30,8 +30,22 @@ import com.mojang.brigadier.tree.RootCommandNode;
 import org.bukkit.entity.Player;
 import java.util.List;
 
+/**
+ * An implementation of {@link CommandContext} to be constructed by {@link InternalCommandContextFactory}.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 class InternalCommandContext<S> extends CommandContext<S> {
 
+	/**
+	 * Used by {@link InternalCommandContextFactory} to construct {@link InternalCommandContext}.
+	 *
+	 * @param plugin A plugin instance.
+	 * @param player A player who executed the command.
+	 * @param rootNode Brigadier's root command node.
+	 * @param headNode A head node of the executed command.
+	 * @param arguments A list of arguments passed to the executed command.
+	 */
 	protected InternalCommandContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> rootNode, final CommandNode<S> headNode, final List<String> arguments) {
 
 		super(plugin, player, rootNode, headNode, arguments);

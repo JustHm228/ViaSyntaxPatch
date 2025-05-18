@@ -29,8 +29,22 @@ import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
 import org.bukkit.entity.Player;
 
+/**
+ * An implementation of {@link SyntaxContext} to be constructed by {@link InternalSyntaxContextFactory}.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 class InternalSyntaxContext<S> extends SyntaxContext<S> {
 
+	/**
+	 * Used by {@link InternalSyntaxContextFactory} to construct {@link InternalSyntaxContext}.
+	 *
+	 * @param plugin A plugin instance.
+	 * @param player A player to whom your syntax transformations are sent.
+	 * @param rootNode Brigadier's root command node of the player.
+	 * @param headNode A head node of the transformed command.
+	 * @param parentNode A parent node.
+	 */
 	protected InternalSyntaxContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> rootNode, final CommandNode<S> headNode, final CommandNode<S> parentNode) {
 
 		super(plugin, player, rootNode, headNode, parentNode);
