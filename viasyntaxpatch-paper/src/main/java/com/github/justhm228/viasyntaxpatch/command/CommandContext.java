@@ -30,6 +30,11 @@ import com.mojang.brigadier.tree.RootCommandNode;
 import org.bukkit.entity.Player;
 import java.util.List;
 
+/**
+ * Provides required parameters to command transformers.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 public abstract class CommandContext<S> {
 
 	private final ViaSyntaxPatch plugin;
@@ -42,6 +47,15 @@ public abstract class CommandContext<S> {
 
 	private final List<String> arguments;
 
+	/**
+	 * Constructs a {@link CommandContext} object. Prefer using factories over this constructor.
+	 *
+	 * @param plugin A plugin instance.
+	 * @param player A player who executed the command.
+	 * @param rootNode Brigadier's root command node.
+	 * @param headNode A head node of the executed command.
+	 * @param arguments A list of arguments passed to the executed command. The first element is an alias used to execute the command.
+	 */
 	protected CommandContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> rootNode, final CommandNode<S> headNode, final List<String> arguments) {
 
 		super();
@@ -52,26 +66,51 @@ public abstract class CommandContext<S> {
 		this.arguments = arguments;
 	}
 
+	/**
+	 * Returns a plugin instance.
+	 *
+	 * @return The plugin instance.
+	 */
 	public final ViaSyntaxPatch getPlugin() {
 
 		return plugin;
 	}
 
+	/**
+	 * Returns a player who executed the command.
+	 *
+	 * @return The player who executed the command.
+	 */
 	public final Player getPlayer() {
 
 		return player;
 	}
 
+	/**
+	 * Returns Brigadier's root node.
+	 *
+	 * @return Brigadier's root node.
+	 */
 	public final RootCommandNode<S> getRootNode() {
 
 		return rootNode;
 	}
 
+	/**
+	 * Returns a head node of the executed command.
+	 *
+	 * @return The head node of the executed command.
+	 */
 	public final CommandNode<S> getHeadNode() {
 
 		return headNode;
 	}
 
+	/**
+	 * Returns a list of arguments passed to the executed command.
+	 *
+	 * @return The list of arguments passed to the executed command. The first element is an alias used to execute the command.
+	 */
 	public final List<String> getArguments() {
 
 		return arguments;
