@@ -45,7 +45,7 @@ public final class InternalCommandContextFactory implements CommandContextFactor
 
 		if (plugin.getCommandContextFactory() != null) {
 
-			throw new IllegalStateException();
+			throw new IllegalStateException("ViaSyntaxPatch already has its own CommandContextFactory");
 		}
 
 		this.plugin = plugin;

@@ -42,7 +42,7 @@ public final class InternalSyntaxContextFactory implements SyntaxContextFactory 
 
 		if (plugin.getSyntaxContextFactory() != null) {
 
-			throw new IllegalStateException();
+			throw new IllegalStateException("ViaSyntaxPatch already has its own SyntaxContextFactory");
 		}
 
 		this.plugin = plugin;
