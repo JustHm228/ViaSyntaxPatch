@@ -26,11 +26,27 @@ package com.github.justhm228.viasyntaxpatch.command;
 
 import java.util.function.Consumer;
 
+/**
+ * Used to apply transformations to syntax of Brigadier commands.
+ *
+ * @param <C> Context type.
+ */
 @FunctionalInterface()
 public interface Transformer<C> extends Consumer<C> {
 
+	/**
+	 * Applies transformations to syntax of Brigadier commands.
+	 *
+	 * @param ctx A context object which provides required parameters.
+	 * @return If any transformation was applied.
+	 */
 	boolean transform(final C ctx);
 
+	/**
+	 * Delegates to {@link #transform(Object)}.
+	 *
+	 * @param ctx A context object which provides required parameters.
+	 */
 	@Override()
 	default void accept(final C ctx) {
 
