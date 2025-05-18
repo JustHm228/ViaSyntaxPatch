@@ -24,8 +24,16 @@
 
 package com.github.justhm228.viasyntaxpatch.command;
 
-@FunctionalInterface()
-public interface SyntaxTransformer<S> extends Transformer<SyntaxContext<S>> {
+import java.util.function.Consumer;
 
-	boolean transform(final SyntaxContext<S> ctx);
+@FunctionalInterface()
+public interface Transformer<C> extends Consumer<C> {
+
+	boolean transform(final C ctx);
+
+	@Override()
+	default void accept(final C ctx) {
+
+		transform(ctx);
+	}
 }
