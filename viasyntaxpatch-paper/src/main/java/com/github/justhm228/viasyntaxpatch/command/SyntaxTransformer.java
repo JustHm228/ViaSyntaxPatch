@@ -24,8 +24,19 @@
 
 package com.github.justhm228.viasyntaxpatch.command;
 
+/**
+ * Used to apply transformations to syntax of Brigadier commands.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 @FunctionalInterface()
 public interface SyntaxTransformer<S> extends Transformer<SyntaxContext<S>> {
 
+	/**
+	 * Applies transformations to syntax of Brigadier commands.
+	 *
+	 * @param ctx {@link SyntaxContext} which provides required parameters.
+	 * @return If any transformation was applied.
+	 */
 	boolean transform(final SyntaxContext<S> ctx);
 }
