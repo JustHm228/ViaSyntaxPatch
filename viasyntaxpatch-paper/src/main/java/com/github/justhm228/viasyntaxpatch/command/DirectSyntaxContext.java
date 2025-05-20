@@ -29,6 +29,11 @@ import com.mojang.brigadier.tree.CommandNode;
 import com.mojang.brigadier.tree.RootCommandNode;
 import org.bukkit.entity.Player;
 
+/**
+ * Dedicated to construct {@link SyntaxContext} objects used by internals.
+ *
+ * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+ */
 final class DirectSyntaxContext<S> extends InternalSyntaxContext<S> {
 
 	private DirectSyntaxContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> rootNode, final CommandNode<S> headNode, final CommandNode<S> parentNode) {
@@ -36,11 +41,30 @@ final class DirectSyntaxContext<S> extends InternalSyntaxContext<S> {
 		super(plugin, player, rootNode, headNode, parentNode);
 	}
 
+	/**
+	 * Constructs a {@link SyntaxContext} object to be used by internals.
+	 *
+	 * @param plugin A plugin instance.
+	 * @param player A player.
+	 * @param root Brigadier's root command node.
+	 * @param head The head node of a command.
+	 * @param parent A parent node.
+	 * @return A {@link SyntaxContext} instance constructed with the provided arguments.
+	 * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+	 */
 	static <S> SyntaxContext<S> createNewContext(final ViaSyntaxPatch plugin, final Player player, final RootCommandNode<S> root, final CommandNode<S> head, final CommandNode<S> parent) {
 
 		return new DirectSyntaxContext<>(plugin, player, root, head, parent);
 	}
 
+	/**
+	 * Constructs a new {@link SyntaxContext} object from an old one with a new parent node to be used by internals.
+	 *
+	 * @param ctx Old {@link SyntaxContext} instance used to construct a new one.
+	 * @param newParent New parent node to be set in a new {@link SyntaxContext}.
+	 * @return A new {@link SyntaxContext} instance constructed from an old one but with a new parent node.
+	 * @param <S> The command source type (either {@link io.papermc.paper.command.brigadier.CommandSourceStack} for Paper commands, or {@link net.minecraft.commands.CommandSourceStack} for native Minecraft commands).
+	 */
 	static <S> SyntaxContext<S> createNewContext(final SyntaxContext<S> ctx, final CommandNode<S> newParent) {
 
 		return createNewContext(ctx.getPlugin(), ctx.getPlayer(), ctx.getRootNode(), ctx.getHeadNode(), newParent);
